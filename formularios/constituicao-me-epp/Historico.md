@@ -1,0 +1,37 @@
+# Histórico: Formulário Sara Oliveira, Constituição Empresarial (ME e EPP)
+
+Arquivo principal: Sara Oliveira - Constituição Empresarial.html
+Pasta: Meu Drive/00.4 - LexTecnologias/01 - Sistemas/13 - Formulário Sara Oliveira
+Data: 26/11/2026
+
+## Versão 1 (16h41)
+Criada a página HTML autônoma, sem dependências externas, com três seções: dados do estabelecimento (itens 01 a 09), dados da empresa (itens 10 a 16) e dados dos sócios. Fonte Arial e cores da paleta do escritório (#233310, #2F4F4F e #556B2F). Recursos: campo de regime de bens exibido somente quando o estado civil é "Casado(a)"; máscaras de CPF, telefone e capital social em reais; salvamento automático no navegador (localStorage); opção de salvar e carregar os dados em arquivo .json; declaração de veracidade com local, data e linhas de assinatura; botão "Exportar PDF", que abre a impressão do navegador com layout próprio para papel. Acrescentado o campo "Nome completo" do sócio, que não constava da lista original. Os campos do sócio foram reordenados para seguir a numeração de 1 a 11 do checklist.
+
+## Versão 2 (16h45 e 16h46)
+O primeiro sócio passou a ser obrigatório: título "Sócio 01 (obrigatório)", campos marcados com asterisco e sem botão de remoção. A exportação em PDF fica bloqueada enquanto houver campo obrigatório vazio, com destaque em vermelho e aviso da quantidade pendente. Não são exigidos o nome do pai e o regime de bens quando o sócio não é casado. Sócios adicionais são opcionais, incluídos pelo botão "Incluir mais sócios" ao final da seção e removíveis. Removidos o logotipo e a frase de rodapé com o nome do escritório.
+
+## Versão 3 (16h57)
+Incluída a identificação "Sara Oliveira, Coordenação Societária" no cabeçalho e na linha de assinatura, no lugar do nome e da inscrição na OAB do Dr. Carlos. Nos dados dos sócios, incluídos os itens 10 (número do registro profissional), 11 (órgão expedidor do registro) e 12 (data de expedição do registro), opcionais; e-mail e telefone passaram a ser os itens 13 e 14. Incluída a seção "IV. Outras informações" antes da declaração e das assinaturas. Impressão configurada para A4, Arial 12, margens superior 3 cm, esquerda 3 cm, direita 2 cm e inferior 2 cm, sem marcação de asteriscos nem textos de exemplo no PDF e com quebras de página que não cortam campos. Layout responsivo em três faixas: computador (6 colunas), tablet (2 colunas) e celular (1 coluna, botões maiores e fonte de 16 px nos campos para evitar zoom automático).
+
+Testes realizados: verificação de sintaxe do JavaScript, bloqueio da exportação com sócio obrigatório vazio, inclusão e remoção de sócios, máscaras, geração de PDF em A4 (3 páginas com um sócio) e visualização em tela de celular (390 px).
+
+## Observações de uso
+Para que as margens definidas sejam respeitadas, a opção "Margens" da janela de impressão deve permanecer em "Padrão". Os dados ficam salvos apenas no navegador em que foram digitados; para levar o preenchimento a outro computador, usar "Salvar dados (arquivo)" e depois "Carregar dados".
+
+## Versão 4 (17h02)
+Organização dos arquivos na pasta "13 - Formulário Sara Oliveira": página HTML, Pedidos.md, Codigo-fonte.md e Historico.md.
+
+## Versão 5 (17h03)
+Cabeçalho reorganizado em caixa alta, na ordem: "COORDENAÇÃO SOCIETÁRIA", "CHECKLIST PARA CONSTITUIÇÃO DE EMPRESA ME E EPP" e "COORDENADORA: SARA OLIVEIRA". Removido o subtítulo "Levantamento de informações do estabelecimento, da empresa e dos sócios". A linha "Assinatura do responsável" passou a "Assinatura do responsável pelos dados". O espaço acima das linhas de assinatura foi ampliado de 46 px para 110 px (cerca de 2,9 cm no PDF) e, no celular, as duas linhas ficam empilhadas com 100 px entre elas. Codigo-fonte.md atualizado. Teste de impressão: A4, 3 páginas com um sócio.
+
+## Versão 6 (17h05)
+Nome padrão do arquivo exportado: data do preenchimento no formato dd-mm-aaaa, seguida do primeiro e do último nome do responsável pelas informações (exemplo: "20-11-2026 Maria Santos.pdf"). Se o responsável tiver um só nome, usa-se esse nome. Se a data do preenchimento estiver vazia, o formulário preenche com a data do dia. O campo "Cliente / responsável pelas informações" passou a ser obrigatório para exportar, e caracteres inválidos em nomes de arquivo são removidos. O mesmo padrão vale para o botão "Salvar dados (arquivo)" (extensão .json). O nome é aplicado ao título da página no momento da impressão, que é o nome sugerido pelo navegador ao salvar como PDF, e o título original é restaurado ao fechar a impressão. Testes: "Maria José da Silva Santos" sem data gerou "26-11-2026 Maria Santos"; "Pedro" com data 20/11/2026 gerou "20-11-2026 Pedro".
+
+## Versão 7 (17h14)
+Na impressão, cada campo deixa de ser exibido como caixa de digitação (que corta textos longos) e passa a ser um bloco de texto com quebra de linha automática, inclusive em e-mails e endereços extensos; datas saem no formato dd/mm/aaaa e listas de seleção saem pelo texto escolhido. Quebras de página: nenhum campo curto é dividido entre páginas, títulos de seção não ficam isolados no fim da página, e textos longos (endereço comercial, objeto social e outras informações) podem continuar na página seguinte. Incluída a seção "V. Documentos anexos", com caixa para clicar ou arrastar arquivos PDF, JPG ou PNG, lista com ordem ajustável (Subir, Descer) e remoção. Cada página de PDF e cada imagem é convertida em imagem e impressa em página própria ao final do formulário, com legenda "Anexo n: nome do arquivo (página x de y)", de modo que o PDF exportado reúne formulário e anexos em um único documento; a seção V lista os anexos no corpo do formulário. A leitura de PDF usa a biblioteca PDF.js 3.11.174 incorporada ao próprio arquivo, que passou a ter cerca de 1,4 MB e continua funcionando sem internet. Os anexos não ficam no salvamento automático do navegador, mas são incluídos no arquivo .json de "Salvar dados (arquivo)". Teste: formulário com textos longos e dois anexos (PDF de 3 páginas e foto) gerou PDF A4 de 8 páginas, sem textos cortados.
+
+## Versão 8 (17h17)
+Todo o texto do documento passou a ter alinhamento justificado, inclusive cabeçalho, rótulos, valores, legendas dos anexos e assinaturas. Incluído na barra superior o link "Todas as soluções", que leva à página inicial do repositório. Arquivos publicados no repositório GitHub oliveiracarlosadv/Contabilidade: página inicial (index.html) com botão e link direto para cada solução, e o formulário em formularios/constituicao-me-epp/index.html, junto com Pedidos.md, Historico.md e Codigo-fonte.md.
+
+## Versão 9 (17h18)
+Incluída a tela de apresentação (splash), exibida sempre que o formulário é aberto, com a finalidade do formulário, as regras de privacidade, instruções resumidas de uso, os créditos (idealização: Sara Oliveira, Coordenação Societária; desenvolvimento: Carlos Alexandre Albuquerque Oliveira) e os botões "Iniciar preenchimento" e "Ler o manual". Ela pode ser reaberta pelo botão "Sobre". Para que a afirmação de que nenhum dado é salvo seja verdadeira, foi retirado o salvamento automático no navegador (localStorage), e eventuais dados gravados por versões anteriores são apagados ao abrir a página. Em seu lugar, o navegador pede confirmação antes de fechar ou recarregar a página com dados preenchidos. A guarda do preenchimento passa a ser feita somente pelo botão "Salvar dados (arquivo)", que gera um arquivo no computador do usuário. Incluídos o botão "Manual" na barra superior, o manual de uso (MANUAL.md e manual.html) e o README do repositório.

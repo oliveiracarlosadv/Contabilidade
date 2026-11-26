@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contabilidade | Soluções</title>
+<style>
+  :root{--verde:#233310;--verde2:#2F4F4F;--folha:#556B2F;--fundo:#F4F5F1;--linha:#C9CEC0}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--fundo);font-family:Arial, Helvetica, sans-serif;color:#1E1E1E;text-align:justify}
+  header{background:var(--verde);color:#fff;padding:28px 20px}
+  header .conteudo,main{max-width:900px;margin:0 auto}
+  header h1{margin:0;font-size:20pt;font-weight:normal;letter-spacing:.5px;text-transform:uppercase}
+  header p{margin:6px 0 0;font-size:11pt;opacity:.85}
+  main{padding:26px 20px 40px}
+  .grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+  .cartao{background:#fff;border:1px solid var(--linha);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:10px}
+  .area{font-size:9.5pt;color:var(--folha);text-transform:uppercase;letter-spacing:.5px}
+  .cartao h2{margin:0;font-size:13pt;font-weight:normal;color:var(--verde2)}
+  .cartao p{margin:0;font-size:10.5pt;color:#444;line-height:1.45;flex:1}
+  .abrir{display:block;text-align:center;background:var(--folha);color:#fff;text-decoration:none;padding:10px 14px;border-radius:4px;font-size:11pt}
+  .abrir:hover{background:var(--verde2)}
+  .manual{font-size:10pt;color:var(--folha);text-align:center}
+  .link{display:flex;gap:6px;align-items:center}
+  .link input{flex:1;min-width:0;font-family:inherit;font-size:9.5pt;padding:6px 8px;border:1px solid var(--linha);border-radius:3px;background:#FAFBF7;color:#333}
+  .link button{font-family:inherit;font-size:9.5pt;border:1px solid var(--folha);background:#fff;color:var(--folha);padding:6px 10px;border-radius:3px;cursor:pointer;white-space:nowrap}
+  footer{max-width:900px;margin:0 auto;padding:0 20px 30px;font-size:9.5pt;color:#666}
+  @media (max-width:600px){header h1{font-size:16pt}main{padding:18px 12px 30px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="conteudo">
+    <h1>Contabilidade</h1>
+    <p>Soluções e formulários de acesso direto</p>
+  </div>
+</header>
+
+<main>
+  <div class="grade" id="solucoes"></div>
+</main>
+
+<footer>Os formulários funcionam no próprio navegador: nenhum dado digitado é enviado pela internet ou armazenado. Idealização: Sara Oliveira. Desenvolvimento: Carlos Alexandre Albuquerque Oliveira.</footer>
+
+<script>
+/*
+  Para incluir uma nova solução, acrescente um item nesta lista.
+  "caminho" é a pasta da solução dentro do repositório (com index.html).
+*/
+const SOLUCOES = [
+  {
+    area: 'Coordenação Societária',
+    titulo: 'Checklist para Constituição de Empresa ME e EPP',
+    descricao: 'Formulário de levantamento dos dados do estabelecimento, da empresa e dos sócios, com anexação de documentos e exportação em PDF único.',
+    caminho: 'formularios/constituicao-me-epp/',
+    manual: 'formularios/constituicao-me-epp/manual.html'
+  }
+];
+
+const base = location.href.replace(/[^/]*$/, '');
+const grade = document.getElementById('solucoes');
+SOLUCOES.forEach(s => {
+  const url = new URL(s.caminho, base).href;
+  const c = document.createElement('article'); c.className = 'cartao';
+  c.innerHTML = '<div class="area"></div><h2></h2><p></p>' +
+    '<a class="abrir" target="_blank" rel="noopener">Abrir</a>' +
+    (s.manual ? '<a class="manual" target="_blank" rel="noopener">Manual de uso</a>' : '') +
+    '<div class="link"><input readonly aria-label="Link de acesso direto"><button type="button">Copiar link</button></div>';
+  c.querySelector('.area').textContent = s.area;
+  c.querySelector('h2').textContent = s.titulo;
+  c.querySelector('p').textContent = s.descricao;
+  c.querySelector('.abrir').href = url;
+  if (s.manual) c.querySelector('.manual').href = new URL(s.manual, base).href;
+  const campo = c.querySelector('input'); campo.value = url;
+  const botao = c.querySelector('button');
+  botao.onclick = async () => {
+    try { await navigator.clipboard.writeText(url); } catch(e) { campo.select(); document.execCommand('copy'); }
+    botao.textContent = 'Copiado'; setTimeout(() => botao.textContent = 'Copiar link', 1500);
+  };
+  grade.appendChild(c);
+});
+</script>
+</body>
+</html>
