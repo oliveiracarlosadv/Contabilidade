@@ -1,5 +1,13 @@
 # Contabilidade
 
+<p align="center">
+  <a href="https://oliveiracarlosadv.github.io/Contabilidade/formularios/constituicao-me-epp/"><img src="https://img.shields.io/badge/ACESSAR%20O%20FORMUL%C3%81RIO-Constitui%C3%A7%C3%A3o%20de%20Empresa%20ME%20e%20EPP-556B2F?style=for-the-badge" alt="Acessar o formulário de Constituição de Empresa ME e EPP"></a>
+</p>
+<p align="center">
+  <a href="https://oliveiracarlosadv.github.io/Contabilidade/"><img src="https://img.shields.io/badge/TODAS%20AS%20SOLU%C3%87%C3%95ES-2F4F4F?style=for-the-badge" alt="Todas as soluções"></a>
+  <a href="https://oliveiracarlosadv.github.io/Contabilidade/formularios/constituicao-me-epp/manual.html"><img src="https://img.shields.io/badge/MANUAL%20DE%20USO-233310?style=for-the-badge" alt="Manual de uso"></a>
+</p>
+
 Repositório de soluções e formulários de acesso direto, desenvolvidos para apoiar as rotinas de contabilidade e de registro empresarial. Cada solução fica em uma pasta própria e é aberta por um link direto, a partir da página inicial.
 
 Página inicial (todas as soluções): https://oliveiracarlosadv.github.io/Contabilidade/
