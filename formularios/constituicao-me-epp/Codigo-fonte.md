@@ -1,11 +1,11 @@
 # Código-fonte: Formulário Sara Oliveira, Constituição Empresarial (ME e EPP)
 
 Arquivo: Sara Oliveira - Constituição Empresarial.html (no repositório GitHub: formularios/constituicao-me-epp/index.html)
-Versão: 9 (26/11/2026)
+Versão: 10 (26/11/2026)
 Tecnologia: HTML, CSS e JavaScript em arquivo único, sem conexão com a internet. Codificação UTF-8. Biblioteca incorporada: PDF.js 3.11.174 (Mozilla, licença Apache 2.0), usada para converter os anexos em PDF em páginas de imagem.
 
 ## Estrutura
-O arquivo reúne a tela de apresentação (splash), o estilo (bloco style, com regras de tela, de responsividade em 900 px e 600 px e de impressão em A4 com margens 3/2/2/3 cm), o formulário (seções I a V, declaração e assinaturas), o contêiner das páginas anexas (anexosImpressao), o modelo de bloco de sócio (elemento template), dois blocos script com a biblioteca PDF.js e o script do formulário.
+O cabeçalho (head) traz as metatags de descrição, autoria, indexação, Open Graph, Twitter Card, link canônico, ícones e dados estruturados schema.org (WebApplication). O arquivo reúne a tela de apresentação (splash), o estilo (bloco style, com regras de tela, de responsividade em 900 px e 600 px e de impressão em A4 com margens 3/2/2/3 cm), o formulário (seções I a V, declaração e assinaturas), o contêiner das páginas anexas (anexosImpressao), o modelo de bloco de sócio (elemento template), dois blocos script com a biblioteca PDF.js e o script do formulário.
 
 Principais funções: adicionarSocio, removerSocio e renumerar (gestão dos sócios); alternarRegime (regime de bens para sócio casado); coletar e aplicar (leitura e preenchimento dos campos); salvar (apenas registra que houve alteração, para o aviso ao fechar a página; nenhum dado é gravado no navegador, e a chave antiga checklist_constituicao_me_epp_v1 é apagada ao abrir); iniciar (exibe a tela de apresentação, ou splash); nomeArquivo e validarResponsavel (nome padrão "dd-mm-aaaa Primeiro Último"); salvarArquivo e carregarArquivo (.json, incluindo os anexos); validarPrimeiroSocio; prepararImpressao, limparImpressao e encerrarImpressao (na impressão, cada campo é substituído por um bloco de texto com quebra de linha automática, para que nenhuma palavra seja cortada); adicionarArquivos, pdfParaPaginas, imagemParaPagina, renderizarListaAnexos e montarAnexosImpressao (anexos: cada página de PDF e cada imagem é convertida em JPEG e impressa em página própria ao final do formulário, com legenda); exportarPDF (valida, aplica o nome padrão, monta a impressão e aguarda o carregamento das imagens antes de abrir a janela de impressão); mascaraCPF, mascaraFone e mascaraMoeda.
 
@@ -19,6 +19,34 @@ No código abaixo, os dois blocos script marcados com /*PDFJS_LIB*/ e /*PDFJS_WO
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Checklist para Constituição de Empresa ME e EPP</title>
+<meta name="description" content="Formulário da Coordenação Societária para levantar os dados do estabelecimento, da empresa e dos sócios na constituição de empresas ME e EPP, com anexos e exportação em PDF único. Nenhum dado é enviado pela internet.">
+<meta name="keywords" content="constituição de empresa, abertura de empresa, ME, EPP, microempresa, empresa de pequeno porte, checklist, contrato social, sócios, Junta Comercial, Coordenação Societária">
+<meta name="author" content="Carlos Alexandre Albuquerque Oliveira">
+<meta name="creator" content="Carlos Alexandre Albuquerque Oliveira">
+<meta name="publisher" content="Coordenação Societária">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#233310">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<meta name="referrer" content="no-referrer">
+<link rel="canonical" href="https://oliveiracarlosadv.github.io/Contabilidade/formularios/constituicao-me-epp/">
+<link rel="icon" type="image/svg+xml" href="https://oliveiracarlosadv.github.io/Contabilidade/assets/favicon.svg">
+<link rel="apple-touch-icon" href="https://oliveiracarlosadv.github.io/Contabilidade/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Contabilidade">
+<meta property="og:title" content="Checklist para Constituição de Empresa ME e EPP | Coordenação Societária">
+<meta property="og:description" content="Formulário da Coordenação Societária para levantar os dados do estabelecimento, da empresa e dos sócios na constituição de empresas ME e EPP, com anexos e exportação em PDF único. Nenhum dado é enviado pela internet.">
+<meta property="og:url" content="https://oliveiracarlosadv.github.io/Contabilidade/formularios/constituicao-me-epp/">
+<meta property="og:image" content="https://oliveiracarlosadv.github.io/Contabilidade/assets/og-constituicao-me-epp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Checklist para Constituição de Empresa ME e EPP, Coordenação Societária">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Checklist para Constituição de Empresa ME e EPP | Coordenação Societária">
+<meta name="twitter:description" content="Formulário da Coordenação Societária para levantar os dados do estabelecimento, da empresa e dos sócios na constituição de empresas ME e EPP, com anexos e exportação em PDF único. Nenhum dado é enviado pela internet.">
+<meta name="twitter:image" content="https://oliveiracarlosadv.github.io/Contabilidade/assets/og-constituicao-me-epp.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Checklist para Constituição de Empresa ME e EPP", "url": "https://oliveiracarlosadv.github.io/Contabilidade/formularios/constituicao-me-epp/", "description": "Formulário da Coordenação Societária para levantar os dados do estabelecimento, da empresa e dos sócios na constituição de empresas ME e EPP, com anexos e exportação em PDF único. Nenhum dado é enviado pela internet.", "applicationCategory": "BusinessApplication", "operatingSystem": "Qualquer navegador moderno", "inLanguage": "pt-BR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"}, "dateModified": "2026-11-26", "author": {"@type": "Person", "name": "Carlos Alexandre Albuquerque Oliveira"}, "contributor": {"@type": "Person", "name": "Sara Oliveira", "jobTitle": "Coordenadora", "worksFor": {"@type": "Organization", "name": "Coordenação Societária"}}}</script>
 <style>
   :root{
     --verde:#233310; --verde2:#2F4F4F; --folha:#556B2F;

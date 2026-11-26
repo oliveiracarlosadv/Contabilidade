@@ -63,3 +63,6 @@ Salvar tudo no repositório https://github.com/oliveiracarlosadv/Contabilidade e
 
 ## Pedido 10 (17h18)
 Elaborar o README e o manual. A responsável pela ideia é Sara Oliveira; o criador é Carlos Alexandre Albuquerque Oliveira. Criar uma tela de apresentação (splash screen) explicando para que serve o formulário e informando que nenhum dado é compartilhado na internet ou salvo.
+
+## Pedido 11 (17h24 a 17h28)
+Deixar o repositório público e criar um botão de acesso público ao formulário no GitHub. Gerar metatags e demais elementos de identificação da página.

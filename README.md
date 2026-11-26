@@ -32,11 +32,11 @@ As soluções funcionam inteiramente no navegador de quem as utiliza. Nenhum dad
 
 ## Estrutura do repositório
 
-O arquivo index.html, na raiz, é a página inicial com o botão e o link direto de cada solução. A pasta formularios reúne os formulários, cada um em sua própria subpasta, com o arquivo index.html da solução, o manual e a documentação. O arquivo .nojekyll informa ao GitHub Pages que os arquivos devem ser publicados sem processamento.
+O arquivo index.html, na raiz, é a página inicial com o botão e o link direto de cada solução. A pasta formularios reúne os formulários, cada um em sua própria subpasta, com o arquivo index.html da solução, o manual e a documentação. A pasta assets guarda o ícone e as imagens de pré-visualização usadas nas metatags (Open Graph e Twitter Card), e os arquivos robots.txt e sitemap.xml orientam os mecanismos de busca. O arquivo .nojekyll informa ao GitHub Pages que os arquivos devem ser publicados sem processamento.
 
 ## Como incluir uma nova solução
 
-Crie uma pasta para a solução (por exemplo, formularios/nome-da-solucao/) com um arquivo index.html autônomo. Em seguida, acrescente um item na lista SOLUCOES do index.html da raiz, informando a área, o título, a descrição, o caminho da pasta e, se houver, o caminho do manual. O botão e o link direto da nova solução passam a aparecer automaticamente na página inicial, no endereço https://oliveiracarlosadv.github.io/Contabilidade/nome-da-pasta/.
+Crie uma pasta para a solução (por exemplo, formularios/nome-da-solucao/) com um arquivo index.html autônomo. Em seguida, acrescente um item na lista SOLUCOES do index.html da raiz, informando a área, o título, a descrição, o caminho da pasta e, se houver, o caminho do manual. Copie para o cabeçalho da nova página o bloco de metatags de uma solução existente, ajustando título, descrição, endereço e imagem, e inclua o novo endereço no sitemap.xml. O botão e o link direto da nova solução passam a aparecer automaticamente na página inicial, no endereço https://oliveiracarlosadv.github.io/Contabilidade/nome-da-pasta/.
 
 ## Publicação
 
